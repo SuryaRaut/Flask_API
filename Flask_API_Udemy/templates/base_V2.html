@@ -1,0 +1,39 @@
+<!-- {% block title %} {% endblock %}: A block that serves as a placeholder for a title. 
+You’ll later use it in other templates to provide a custom title for each page in 
+your application without rewriting the entire <head> section each time. -->
+
+<!-- {% block content %} {% endblock %}: Another block that will be replaced by content 
+depending on the child template (a template that inherits from base_V1.html) that will override it. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title1 %} {% endblock %} - FlaskApp</title>
+    <style>
+        nav a {
+            color: #d64161;
+            font-size: 3em;
+            margin-left: 50px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <!-- you use the special url_for() function that will return the URL for the view function you give it
+        The first link links to the route of the hello() view function (which is the index page). 
+        The second link links to the route of the about() view function. 
+        
+        Notice that you pass the name of the view function, not the route (/ or /about). -->
+
+        <a href="{{ url_for('home') }}">HOME</a>
+        <a href="{{ url_for('message') }}">Secret Message</a>
+        <a href="{{ url_for('about') }}">About</a>
+    </nav>
+    <hr>
+    <div class="content">
+        {% block content1 %} {% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!-- use the { extends } tag to inherit from the base_V1.html template. 
+You then extend it via replacing the content block in the base_V1 
+template with what is inside the content block in the preceding code block. -->
+
+{% extends 'base_V1.html' %}
+
+{% block content1 %}
+    <h1>{% block title1 %} Index {% endblock %}</h1>
+    <h1>Hello World!</h1>
+    <h2>Welcome to FlaskApp!</h2>
+    <h3>{{ utc_dt }}</h3>
+{% endblock %}
